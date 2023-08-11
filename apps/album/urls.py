@@ -3,10 +3,8 @@ from django.urls import path, include
 from . import views
 app_name = 'album'
 router = DefaultRouter()
-router.register(r'', views.AlbumView, basename='album')
+router.register('', views.AlbumViewSet, basename='album')
 
 urlpatterns = [
     path('', include(router.urls)),
-    #path('/create', views.AlbumView.as_view(), name="instances"),
-
 ]
