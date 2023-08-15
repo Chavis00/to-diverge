@@ -33,6 +33,7 @@ BASE_APPS = [
 LOCAL_APPS = [
     'core',
     'apps.album',
+    'apps.artist',
 ]
 THIRD_PARTY_APPS = [
     'rest_framework',

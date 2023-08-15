@@ -47,16 +47,10 @@ class Album(DjangoNode):
 
     def check_and_save(self) -> None:
         self._check_album_attributes()
-        self._check_if_album_already_exist()
         self.save()
 
     def update(self, data: dict) -> None:
         self.__dict__.update(data)
-
-    def _check_if_album_already_exist(self) -> None:
-        album_with_same_title = Album.nodes.get_or_none(title=self.title)
-        if album_with_same_title and album_with_same_title != self:
-            raise AlbumAlreadyExistException(self.title)
 
     def _check_album_attributes(self) -> None:
         if not isinstance(self.release_year, int) or (not isinstance(self.title, str)):
